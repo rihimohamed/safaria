@@ -1,0 +1,101 @@
+================================================================================
+                        SafarAI - Project Requirements
+================================================================================
+
+SYSTEM REQUIREMENTS
+-------------------
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+- .env.local file with API credentials (REQUIRED for app to run)
+
+
+INSTALLATION
+------------
+1. Clone/extract the project
+2. Run: npm install
+3. Create .env.local file (copy template above)
+4. Add your API credentials to .env.local
+5. Run: npm run dev
+6. Open browser at http://localhost:5173
+
+
+RUNTIME DEPENDENCIES
+--------------------
+react@^19.2.4
+react-dom@^19.2.4
+react-router-dom@^7.13.2
+@supabase/supabase-js@^2.103.3
+react-leaflet@^5.0.0
+leaflet@^1.9.4
+lucide-react@^1.6.0
+
+
+DEVELOPMENT DEPENDENCIES
+------------------------
+vite@^5.4.10
+@vitejs/plugin-react@^5.1.0
+tailwindcss@^3.4.19
+postcss@^8.5.8
+autoprefixer@^10.4.27
+eslint@^9.39.4
+@eslint/js@^9.39.4
+eslint-plugin-react-hooks@^7.0.1
+eslint-plugin-react-refresh@^0.5.2
+@types/react@^19.2.14
+@types/react-dom@^19.2.3
+globals@^17.4.0
+
+
+ENVIRONMENT VARIABLES (.env.local)
+-----------------------------------
+REQUIRED: Create a .env.local file in the project root with the following variables:
+
+VITE_SUPABASE_URL                    (Supabase project URL)
+VITE_SUPABASE_ANON_KEY               (Supabase anonymous key)
+VITE_FOURSQUARE_CLIENT_ID            (Foursquare API Client ID)
+VITE_FOURSQUARE_CLIENT_SECRET        (Foursquare API Client Secret)
+VITE_PEXELS_API_KEY                  (Pexels API key for image searches)
+
+EXAMPLE:
+--------
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key-here
+VITE_FOURSQUARE_CLIENT_ID=your-client-id
+VITE_FOURSQUARE_CLIENT_SECRET=your-client-secret
+VITE_PEXELS_API_KEY=your-api-key
+
+Where to get credentials:
+- Supabase: supabase.com -> Create project -> API settings
+- Foursquare: foursquare.com/developers -> Create app
+- Pexels: pexels.com/api -> Get API key
+
+
+AVAILABLE SCRIPTS
+-----------------
+npm run dev       - Start development server with Vite
+npm run build     - Build for production
+npm run lint      - Run ESLint to check code quality
+npm run preview   - Preview production build locally
+
+
+PROJECT STRUCTURE
+-----------------
+- src/               - Source code directory
+- src/components/    - Reusable React components
+- src/pages/         - Page components
+- src/services/      - API and service integrations
+- src/hooks/         - Custom React hooks
+- src/lib/           - Utility libraries (Supabase)
+- src/data/          - Static data files
+- src/assets/        - Images and other assets
+- public/            - Static files
+- dist/              - Production build output (generated)
+
+
+NOTES
+-----
+This is a React + Vite + Tailwind CSS project with Supabase backend integration.
+All dependencies are managed through npm/package.json.
+See DEPENDENCIES.md for additional documentation.
+
+================================================================================

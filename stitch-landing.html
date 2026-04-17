@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#2e3131",
+                      "primary-fixed": "#98f3e4",
+                      "primary-container": "#1c8277",
+                      "surface-container-high": "#e7e8e7",
+                      "tertiary": "#755b00",
+                      "surface-bright": "#f9f9f8",
+                      "on-secondary-container": "#4a6a65",
+                      "on-background": "#191c1c",
+                      "on-tertiary-container": "#4f3d00",
+                      "on-surface": "#191c1c",
+                      "surface": "#f9f9f8",
+                      "secondary-fixed-dim": "#abcec7",
+                      "surface-container": "#edeeed",
+                      "background": "#f9f9f8",
+                      "outline": "#6e7977",
+                      "on-tertiary-fixed-variant": "#584400",
+                      "primary": "#00685e",
+                      "on-primary-fixed-variant": "#005048",
+                      "on-primary-container": "#f4fffb",
+                      "on-secondary-fixed-variant": "#2d4c47",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#00201c",
+                      "primary-fixed-dim": "#7cd6c8",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e1e3e2",
+                      "surface-tint": "#006a60",
+                      "surface-container-highest": "#e1e3e2",
+                      "secondary-container": "#c7eae2",
+                      "on-surface-variant": "#3e4947",
+                      "on-primary-fixed": "#00201c",
+                      "secondary-fixed": "#c7eae2",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#d9dad9",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f3f4f3",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#bdc9c6",
+                      "tertiary-fixed-dim": "#ecc246",
+                      "tertiary-container": "#cea62c",
+                      "inverse-primary": "#7cd6c8",
+                      "on-tertiary-fixed": "#241a00",
+                      "tertiary-fixed": "#ffe08e",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "secondary": "#44645f",
+                      "inverse-on-surface": "#f0f1f0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 12px 32px rgba(25, 28, 28, 0.06);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,104,94,0.85) 0%, rgba(28,130,119,0.7) 100%);
+        }
+        .tonal-shift-bg {
+            background-color: #f3f4f3; /* surface-container-low */
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<nav class="flex justify-between items-center px-8 h-20 w-full">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-bold tracking-tighter text-teal-900 dark:text-teal-100 font-headline" href="#">SafarAI</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-teal-700 dark:text-teal-300 font-semibold border-b-2 border-teal-600 font-headline tracking-tight transition-all duration-300 hover:opacity-80" href="#">Explore</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-teal-600 font-headline tracking-tight transition-all duration-300 hover:opacity-80" href="#">Concierge</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-teal-600 font-headline tracking-tight transition-all duration-300 hover:opacity-80" href="#">Journal</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-teal-600 font-headline tracking-tight transition-all duration-300 hover:opacity-80" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-4">
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-primary transition-colors">settings</span>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 active:scale-95 shadow-sm">
+                    Plan Trip
+                </button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[921px] min-h-[700px] w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Premium travel destination" class="w-full h-full object-cover" data-alt="cinematic aerial view of a turquoise tropical lagoon surrounded by lush green palm trees at sunset with soft golden light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmENlD6csMjAvhgXtLobROjf57MCR9kqKzx7vEDUkz9mpd_yUD23C-H6vycMswEO6829vMgjoD2TW77OIffaE4VgYJpGNUtBlbKkbgnMhSff62hwmgF8BwFpvhlNEa0gT9KIFXmMarmNS6lDNxdopIMki1QOB35I83Vj_gGDkw1SsWnkYn5t9H2nm26EPVoPAH1bt-c-1BWIZWhhaNpNmE-qT5FIWdEVMhYz5ybP1rc-ipVv5TQg5n_R_gU6t6_7vmOVGdxW4JLC0"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-tertiary-container/20 backdrop-blur-md rounded-full border border-white/10 mb-8">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-on-primary-container font-label text-xs tracking-widest uppercase">AI-Driven Editorial Exploration</span>
+</div>
+<h1 class="text-white font-headline text-7xl font-extrabold tracking-tighter leading-[1.1] mb-6">
+                        Travel is an art form. <br/>
+<span class="text-primary-fixed">We are the brush.</span>
+</h1>
+<p class="text-on-primary-container/80 text-xl font-body leading-relaxed mb-10 max-w-xl">
+                        Experience a digital concierge that understands your soul. From hidden Mediterranean alcoves to Arctic sanctuaries, SafarAI crafts journeys that resonate.
+                    </p>
+<div class="flex items-center gap-6">
+<button class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-surface-container-lowest transition-all active:scale-95 editorial-shadow">
+                            Start My Journey
+                        </button>
+<button class="group flex items-center gap-3 text-white font-semibold">
+<span class="w-12 h-12 flex items-center justify-center rounded-full border border-white/30 group-hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+</span>
+                            Watch the Story
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20">
+<span class="text-tertiary font-label text-sm tracking-widest uppercase mb-4 block">The Ecosystem</span>
+<h2 class="text-5xl font-headline font-bold text-on-surface tracking-tighter max-w-2xl leading-tight">
+                        Everything You Need for the Perfect Trip
+                    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- AI Planning (Large) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-lowest editorial-shadow h-[450px]">
+<div class="absolute inset-0 p-12 flex flex-col justify-end z-10">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4 text-on-surface">AI-Powered Planning</h3>
+<p class="text-on-surface-variant max-w-md leading-relaxed">
+                                Our neural engine analyzes thousands of data points to generate itineraries that match your personal aesthetic and travel pace.
+                            </p>
+</div>
+<img class="absolute top-0 right-0 w-1/2 h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" data-alt="minimalist interior of a luxury design hotel with soft natural light and clean architectural lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx7r4-2KDGtfTgRzntBtWSHgSTyPCxxUoBRUGs0TIb1ESphS9Vistar9l5_HfPbr6X0XnJxzTh8Ipv847uLhAhUySi1xSqjbYHxPn30fep7njnnzDYrK8hO7H-rd4z74qz-7trjSmEYiWzQTxx7f1pn-nIBntRuZwKB2yDhSbMmnoPMRDXTRTTVRb5bIqtuws7fmSbblhZB58Fk2BmLxGRvyMX1zxsoMiK8x1tmyLmmsmcDQh-vApBCwh40M_VP9nSbu-I1rhHrvg"/>
+</div>
+<!-- Destination Discovery -->
+<div class="md:col-span-4 bg-primary-container p-12 rounded-xl flex flex-col justify-between text-on-primary-container shadow-lg">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">explore</span>
+<div>
+<h3 class="text-2xl font-headline font-bold mb-4">Destination Discovery</h3>
+<p class="text-on-primary-container/80 text-sm leading-relaxed">
+                                Curated "editorial drops" featuring places you won't find in typical guides. Authentic, secluded, and verified.
+                            </p>
+</div>
+</div>
+<!-- Weather Intelligence -->
+<div class="md:col-span-4 bg-surface-container-low p-12 rounded-xl flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">cloud_done</span>
+<div>
+<h3 class="text-2xl font-headline font-bold mb-4">Weather Intelligence</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Real-time predictive analytics ensuring your sunset views are never blocked by an unpredicted storm.
+                            </p>
+</div>
+</div>
+<!-- Smart Packing -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-lowest editorial-shadow h-[350px]">
+<div class="flex h-full">
+<div class="w-1/2 p-12 flex flex-col justify-center">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-6">inventory_2</span>
+<h3 class="text-2xl font-headline font-bold mb-4">Smart Packing</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                    Context-aware lists that adapt to your itinerary, weather, and airline baggage restrictions.
+                                </p>
+</div>
+<div class="w-1/2 relative overflow-hidden">
+<img class="w-full h-full object-cover rounded-l-xl" data-alt="neatly organized premium travel accessories and minimalist clothing on a white marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWXJeIxojhpGFJ_kuKybFiS3jIsOzcTtg1aeqZKc2HPNrGtXYX2vjm2xW7OMzPCs1K3r1XZ8tEPZNryu7-3fJQRue4sQHtkN2N3xgCCHdOEGzNVUbzOFZEk2qM_k_sPaikGNHksVKfEPsWuMwmewt-PReDWpnFo4YvRhznjJSXRILfxTCXOkRo1cho9JUFnDRFaowjFeta4D_62tuj8gspkEUHBcG3lEYHUTlzLwFIn9_kmkjEZWg23MHWDcr_rTJGTBiLQPzVe8c"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section with Editorial Layout -->
+<section class="py-32 tonal-shift-bg relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="flex flex-col lg:flex-row items-center gap-20">
+<div class="lg:w-1/2">
+<div class="relative">
+<img class="rounded-xl w-full h-[600px] object-cover editorial-shadow" data-alt="luxury wooden boat cruising through a misty scandinavian fjord with crystal clear water and pine trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Wa4FE63niLj9XksYNB0iOcJ6v4Ve6unrQjbXxmtJq_GMWDsKRz2nX3GBGGZrz1mu98BrTQ_K_oj43hudMcxPaQx2u8dYKNTxGnDsk-X7ySZyscDTbaTt9ZxkKzykjqvxFItqJFaj6R3c9B5xV8vUA-W8iC2bTaO8YV35FYseuQiUIv5SHx5swU5kczCSUAXfXn_TqKEKf1w4hUriHB3gphEXNsLLGFRe3KBMOjxeuYRu4FkMG7VVXlkEk7ZDhFLbpev-Z4scDWU"/>
+<div class="absolute -bottom-10 -right-10 bg-white p-8 rounded-lg editorial-shadow max-w-[280px] hidden md:block">
+<p class="text-tertiary font-headline font-bold text-4xl mb-2">98%</p>
+<p class="text-on-surface-variant text-sm">Of travelers found a hidden gem they wouldn't have found elsewhere.</p>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2">
+<h2 class="text-5xl font-headline font-bold text-on-surface tracking-tighter leading-tight mb-8">
+                            Ready to let the world <br/>surprise you?
+                        </h2>
+<p class="text-lg text-on-surface-variant mb-12 leading-relaxed">
+                            Stop searching and start experiencing. Join 50,000+ explorers who trust SafarAI to handle the logistics so they can focus on the memories.
+                        </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="font-bold text-on-surface">No Generic Results</p>
+<p class="text-sm text-on-surface-variant">Every suggestion is tailored to your unique profile.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="font-bold text-on-surface">Global Concierge Support</p>
+<p class="text-sm text-on-surface-variant">24/7 AI-driven assistance wherever you are on the map.</p>
+</div>
+</div>
+</div>
+<button class="mt-12 bg-primary text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-primary-container transition-all active:scale-95 shadow-lg">
+                            Get Started Free
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t-0 bg-stone-50 dark:bg-stone-950 tonal-shift-bg">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
+<div class="flex flex-col items-center gap-4 mb-8">
+<span class="font-bold text-teal-900 text-3xl font-headline tracking-tighter">SafarAI</span>
+<p class="text-stone-400 font-label text-xs tracking-widest uppercase">Editorial Travel Tech.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-10 mb-12">
+<a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-teal-500 transition-colors" href="#">Privacy Policy</a>
+<a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-teal-500 transition-colors" href="#">Terms of Service</a>
+<a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-teal-500 transition-colors" href="#">Press Kit</a>
+<a class="text-stone-400 font-label text-xs tracking-widest uppercase hover:text-teal-500 transition-colors" href="#">Contact</a>
+</div>
+<div class="flex gap-8 mb-8">
+<span class="material-symbols-outlined text-stone-400 hover:text-primary transition-colors cursor-pointer">public</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary transition-colors cursor-pointer">language</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary transition-colors cursor-pointer">explore</span>
+</div>
+<p class="text-stone-400 font-label text-xs tracking-widest uppercase opacity-70">
+                © 2024 SafarAI. Editorial Travel Tech.
+            </p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,30 @@
+# SafarAI Development Context - Migration & Intelligence Phase
+
+## 1. Project Overview
+SafarAI is a digital travel concierge for Morocco, built with React/Vite (Frontend) and an agentic AI backend orchestrator.
+
+## 2. Completed Milestones
+- **API Migrations**: Completed transitions from Gemini -> DeepSeek -> Groq (Current logic uses Groq `llama-3.3-70b-versatile`).
+- **Tool Integration**: Fully implemented OpenTripMap radius search API for real-time landmark discovery.
+- **SafarAI Persona**: Embedded a culturally rich Moroccan personality (Karam, Darija/French/English support).
+- **Knowledge Base**: Initialized `safarai_docs/` folder with official Moroccan travel guides.
+- **Intent Engine**: Built a reasoning layer that buckets input into [EXPLORE, WEATHER, CULTURE, CHAT].
+
+## 3. Technical Implementation Details (src/services/gemini.js)
+- **Tool Calling**: Uses a loop to handle `tool_calls` for OpenTripMap.
+- **JSON Enforcement**: Uses a strict system-role schema to guarantee UI cards (Itinerary, Monuments, Weather) render correctly. NOTE: `response_format: json_object` was removed to avoid Groq's collision with tool_calling.
+- **Default Context**: Currently hardcoded to **Ifrane, Morocco (April 2026)**.
+
+## 4. Current State & Known Issues
+- **ResearchGate Blocker**: `safi_heritage_2026.pdf` needs manual download due to Cloudflare protection.
+- **Stability Improvement**: Currently transitioning to a "2-Step Waterfall" architecture (Step 1: Classify Intent via LLM -> Step 2: Native JS Tool Execution -> Step 3: Final LLM Generation) to fix hallucinations when the AI tries to juggle tools and JSON formatting simultaneously.
+
+## 5. Active API Keys (in .env.local)
+- `VITE_GROQ_API_KEY`: Groq Cloud.
+- `VITE_OPENTRIPMAP_API_KEY`: Map data.
+- `VITE_DEEPSEEK_API_KEY`: Fallback backup.
+
+## 6. Next Steps for Next Session
+- Finish implementing the `analyzeIntent` waterfall function in `gemini.js`.
+- Replace the current recursive tool loop with the deterministic waterfall for better reliability.
+- Verify landmark discovery in Ifrane.

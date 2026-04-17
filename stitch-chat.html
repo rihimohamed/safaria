@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafarAI | AI Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(249, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .tonal-shift-bg {
+            background-color: #f3f4f3;
+        }
+        .ghost-lift {
+            box-shadow: 0 12px 32px rgba(25, 28, 28, 0.06);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#2e3131",
+                      "primary-fixed": "#98f3e4",
+                      "primary-container": "#1c8277",
+                      "surface-container-high": "#e7e8e7",
+                      "tertiary": "#755b00",
+                      "surface-bright": "#f9f9f8",
+                      "on-secondary-container": "#4a6a65",
+                      "on-background": "#191c1c",
+                      "on-tertiary-container": "#4f3d00",
+                      "on-surface": "#191c1c",
+                      "surface": "#f9f9f8",
+                      "secondary-fixed-dim": "#abcec7",
+                      "surface-container": "#edeeed",
+                      "background": "#f9f9f8",
+                      "outline": "#6e7977",
+                      "on-tertiary-fixed-variant": "#584400",
+                      "primary": "#00685e",
+                      "on-primary-fixed-variant": "#005048",
+                      "on-primary-container": "#f4fffb",
+                      "on-secondary-fixed-variant": "#2d4c47",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#00201c",
+                      "primary-fixed-dim": "#7cd6c8",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e1e3e2",
+                      "surface-tint": "#006a60",
+                      "surface-container-highest": "#e1e3e2",
+                      "secondary-container": "#c7eae2",
+                      "on-surface-variant": "#3e4947",
+                      "on-primary-fixed": "#00201c",
+                      "secondary-fixed": "#c7eae2",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#d9dad9",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f3f4f3",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#bdc9c6",
+                      "tertiary-fixed-dim": "#ecc246",
+                      "tertiary-container": "#cea62c",
+                      "inverse-primary": "#7cd6c8",
+                      "on-tertiary-fixed": "#241a00",
+                      "tertiary-fixed": "#ffe08e",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "secondary": "#44645f",
+                      "inverse-on-surface": "#f0f1f0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface flex overflow-hidden h-screen">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-stone-100 flex flex-col p-6 gap-2 z-40">
+<div class="mb-8 px-2">
+<h1 class="text-xl font-extrabold text-teal-800 tracking-tighter">SafarAI</h1>
+<p class="text-xs text-stone-500 font-medium tracking-tight">Your Digital Concierge</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-teal-700" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-teal-700" data-icon="map">map</span>
+<span class="text-sm font-medium">My Trips</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-teal-900 rounded-xl shadow-sm transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-teal-700" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-sm font-semibold">AI Assistant</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-teal-700" data-icon="bookmark">bookmark</span>
+<span class="text-sm font-medium">Saved Places</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-200/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-teal-700" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-stone-200 pt-6 flex flex-col gap-1">
+<button class="w-full bg-primary text-white py-4 px-6 rounded-full font-semibold text-sm mb-4 shadow-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Adventure
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-stone-400 hover:text-teal-500 text-xs tracking-widest uppercase transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-stone-400 hover:text-teal-500 text-xs tracking-widest uppercase transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Log Out
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 flex flex-col relative bg-surface-container-low">
+<!-- Top Navigation Area -->
+<header class="h-20 flex items-center justify-between px-8 bg-stone-50/80 backdrop-blur-xl z-30 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="text-teal-800 font-headline font-bold text-lg">AI Concierge</span>
+<span class="px-2 py-0.5 bg-tertiary-container/30 text-tertiary text-[10px] font-bold tracking-widest uppercase rounded">Premium</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8">
+<a class="text-stone-500 hover:text-teal-600 text-sm font-medium transition-all" href="#">Explore</a>
+<a class="text-teal-700 font-semibold border-b-2 border-teal-600 text-sm transition-all" href="#">Concierge</a>
+<a class="text-stone-500 hover:text-teal-600 text-sm font-medium transition-all" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-3 border-l border-stone-200 pl-6">
+<button class="text-stone-500 hover:opacity-80 transition-all"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="User avatar" data-alt="close-up portrait of a professional woman with a friendly expression in a modern office with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn0K2-Sh5uJgN5IiN2YD_M5B71_HWpysnTCqtS2AWQ7TDC67ZJsH9KVaqCapkoQuB5StOpQigsQt9e5b9ur42NA4dP5Ekp7-ylPhmwzvTpmhNPc7pwfARBl2e1C7QJ1vhbF-FxdGuFzTipQ-0djOUhyMT8jns07w5QJXH3M7GmDEfOD4NXH3kOSRDL67yeaNzlff1rUw6epucDqg0a13x_zMthg0E-6W1_gmZiKm0wMi1n9_uPS3S5vz7SQJVQcvTg8mayJPQZXXU"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Chat Container -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Previous Conversations Sidebar (Within Chat Window) -->
+<div class="w-80 bg-surface-container-lowest border-r-0 flex flex-col overflow-y-auto">
+<div class="p-6 border-b border-surface-container">
+<div class="relative">
+<input class="w-full bg-surface-container border-none rounded-xl py-3 pl-11 pr-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search memories..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-3.5 text-stone-400 text-sm" data-icon="search">search</span>
+</div>
+</div>
+<div class="flex-1 px-4 py-4 space-y-2">
+<p class="text-[10px] font-bold text-stone-400 tracking-[0.2em] uppercase px-2 mb-4">Recent Explorations</p>
+<button class="w-full text-left p-4 rounded-xl bg-surface-container-low border-l-4 border-primary group transition-all">
+<h4 class="text-sm font-semibold text-teal-900 group-hover:text-primary transition-colors">Spring in Tokyo</h4>
+<p class="text-xs text-stone-500 mt-1 line-clamp-1">7-day itinerary focusing on cherry blossoms...</p>
+<span class="text-[10px] text-stone-400 mt-2 block">2 hours ago</span>
+</button>
+<button class="w-full text-left p-4 rounded-xl hover:bg-surface-container transition-all group">
+<h4 class="text-sm font-medium text-stone-700">Amalfi Coast Retreat</h4>
+<p class="text-xs text-stone-400 mt-1 line-clamp-1">Searching for boutique hotels in Positano...</p>
+<span class="text-[10px] text-stone-400 mt-2 block">Yesterday</span>
+</button>
+<button class="w-full text-left p-4 rounded-xl hover:bg-surface-container transition-all group">
+<h4 class="text-sm font-medium text-stone-700">Iceland Northern Lights</h4>
+<p class="text-xs text-stone-400 mt-1 line-clamp-1">Camper van rentals and route planning...</p>
+<span class="text-[10px] text-stone-400 mt-2 block">Mar 12, 2024</span>
+</button>
+</div>
+</div>
+<!-- Main Chat Window -->
+<section class="flex-1 flex flex-col bg-surface overflow-y-auto relative">
+<div class="max-w-4xl mx-auto w-full flex-1 px-8 py-12 flex flex-col gap-12">
+<!-- SafarAI Intro -->
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center flex-shrink-0 ghost-lift">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-1">
+<h3 class="headline text-2xl font-bold text-teal-900 mb-2 tracking-tight">Welcome back, Elena.</h3>
+<p class="text-lg text-stone-600 leading-relaxed font-body">Where shall we venture next? I've been curating some spring escapes that match your preference for coastal serenity and architectural heritage.</p>
+<!-- Suggested Chips -->
+<div class="flex flex-wrap gap-3 mt-8">
+<button class="px-5 py-2.5 bg-surface-container-lowest text-stone-600 rounded-full text-sm font-medium border border-outline-variant/20 hover:border-primary/40 hover:text-primary transition-all shadow-sm">
+                                    🌸 Tokyo Sakura 2024
+                                </button>
+<button class="px-5 py-2.5 bg-surface-container-lowest text-stone-600 rounded-full text-sm font-medium border border-outline-variant/20 hover:border-primary/40 hover:text-primary transition-all shadow-sm">
+                                    🏝️ Maldives Overwater Villas
+                                </button>
+<button class="px-5 py-2.5 bg-surface-container-lowest text-stone-600 rounded-full text-sm font-medium border border-outline-variant/20 hover:border-primary/40 hover:text-primary transition-all shadow-sm">
+                                    🏰 Loire Valley Castles
+                                </button>
+</div>
+</div>
+</div>
+<!-- AI Response Example -->
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 rounded-2xl bg-stone-200 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-stone-500" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex-1 space-y-6">
+<div class="p-8 bg-surface-container-lowest rounded-xl ghost-lift border border-outline-variant/10">
+<p class="text-stone-700 mb-6 leading-relaxed">Based on your love for minimalist aesthetics and Michelin-starred dining, here is a suggested weekend in **Tokyo**.</p>
+<!-- Itinerary Bento Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 relative h-64 rounded-xl overflow-hidden group">
+<img alt="Tokyo Shinjuku Gyoen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="cinematic view of traditional japanese temple surrounded by blooming cherry blossoms during golden hour in tokyo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Z4KelEhRTyFs0rr2yRalrOBgjH8rtC-Y4ydTaEYcAMeH6fqqYYRh3vNzS-VPre6KUfpkw8FUbPdddncKqzOoYJX7IFcdku5q7AUbgwonrsAl31kfoGpOfoWx_yVbbw_4F7CY9sjz8POxnu46-DVjNEIJN2iktPH-VG707zy3pTQZOMzjJ0lFmMl0o6I80qiKxofgXo-HTkx8e5LO_EMrC0jrDFVw4ktz6g1TOluKDiAyHkCzk0CHV_0Hq8H6f0SGSERoSgDzWlg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<span class="text-[10px] font-bold tracking-[0.2em] uppercase bg-tertiary-container text-on-tertiary-container px-2 py-1 rounded-sm">Featured Stay</span>
+<h4 class="text-xl font-bold mt-2">Aman Tokyo</h4>
+<p class="text-sm opacity-90">Otemachi Tower, Chiyoda City</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<h5 class="font-bold text-teal-900 mb-1">Narisawa</h5>
+<p class="text-xs text-stone-500">Innovation Satoyama cuisine with sustainable philosophy.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="museum" style="font-variation-settings: 'FILL' 1;">museum</span>
+</div>
+<h5 class="font-bold text-teal-900 mb-1">Nezu Museum</h5>
+<p class="text-xs text-stone-500">Pre-modern Japanese art in a stunning Kengo Kuma space.</p>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-between pt-6 border-t border-stone-100">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-xs font-bold text-tertiary tracking-wide uppercase">AI Optimized Path</span>
+</div>
+<button class="text-primary text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                                        Add to itinerary <span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer for input bar -->
+<div class="h-32"></div>
+</div>
+<!-- Chat Input Fixed at Bottom -->
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-surface via-surface/90 to-transparent pointer-events-none">
+<div class="max-w-4xl mx-auto w-full pointer-events-auto">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-2 flex items-center gap-2 ghost-lift ring-4 ring-white/40">
+<button class="p-3 text-stone-400 hover:text-teal-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-stone-800 placeholder-stone-400 font-medium py-3" placeholder="Tell SafarAI about your dream trip..." type="text"/>
+<button class="bg-primary text-white w-12 h-12 rounded-xl flex items-center justify-center shadow-sm hover:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<div class="mt-3 flex justify-center">
+<p class="text-[10px] text-stone-400 tracking-tight font-medium">SafarAI may hallucinate details. Verify travel documents and bookings.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Map Contextual FAB (Only visible on trip-related focus) -->
+<button class="fixed bottom-10 right-10 bg-surface-container-lowest text-primary p-5 rounded-full shadow-2xl border border-primary/10 hover:scale-105 transition-all flex items-center gap-3 z-50">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-sm font-bold uppercase tracking-wider">Explore on Map</span>
+</button>
+<!-- Footer Script (Placeholder for required content logic) -->
+<footer class="hidden">
+<p>© 2024 SafarAI. Editorial Travel Tech.</p>
+<span>Privacy Policy</span>
+<span>Terms of Service</span>
+<span>Press Kit</span>
+<span>Contact</span>
+</footer>
+</body></html>

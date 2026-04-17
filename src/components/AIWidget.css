@@ -1,0 +1,54 @@
+.ai-widget {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(246, 173, 85, 0.15));
+  border: 1px solid rgba(246, 173, 85, 0.3);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-widget::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+}
+
+.ai-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ai-icon {
+  color: var(--accent);
+}
+
+.ai-widget-header h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.ai-widget-content {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.ai-widget-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 0.5rem 0;
+  transition: gap 0.2s ease;
+}
+
+.ai-widget-btn:hover {
+  gap: 0.75rem;
+}

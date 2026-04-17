@@ -1,0 +1,106 @@
+.onboarding-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  position: fixed;
+  top: 0; left: 0; z-index: 1000;
+}
+
+.onboarding-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at top right, rgba(91, 158, 143, 0.1), transparent 40%),
+              radial-gradient(circle at bottom left, rgba(246, 173, 85, 0.1), transparent 40%);
+  z-index: 0;
+}
+
+.onboarding-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 3rem;
+  max-width: 500px;
+  width: 90%;
+  animation: slideUp 0.6s ease;
+}
+
+.slide-icon-wrapper {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 50%;
+  box-shadow: var(--shadow-lg);
+  display: inline-flex;
+  animation: float 3s ease-in-out infinite;
+}
+
+.onboarding-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.onboarding-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.slide-indicators {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.get-started-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s transform;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(91, 158, 143, 0.3);
+}
+
+.get-started-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(91, 158, 143, 0.4);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

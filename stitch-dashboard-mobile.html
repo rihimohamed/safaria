@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Voyage | Alex Walker Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#7cd6c8",
+                      "tertiary-fixed": "#ffe08e",
+                      "on-background": "#191c1c",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#bdc9c6",
+                      "surface-container": "#edeeed",
+                      "on-primary-container": "#f4fffb",
+                      "on-tertiary-container": "#4f3d00",
+                      "on-secondary-fixed": "#00201c",
+                      "on-secondary-fixed-variant": "#2d4c47",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#755b00",
+                      "tertiary-fixed-dim": "#ecc246",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#006a60",
+                      "primary-container": "#1c8277",
+                      "primary": "#00685e",
+                      "inverse-surface": "#2e3131",
+                      "secondary-fixed-dim": "#abcec7",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-surface": "#191c1c",
+                      "surface-dim": "#d9dad9",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e7e8e7",
+                      "on-secondary-container": "#4a6a65",
+                      "surface-container-low": "#f3f4f3",
+                      "on-primary-fixed-variant": "#005048",
+                      "background": "#f9f9f8",
+                      "secondary": "#44645f",
+                      "surface-variant": "#e1e3e2",
+                      "on-surface-variant": "#3e4947",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#98f3e4",
+                      "secondary-fixed": "#c7eae2",
+                      "on-primary-fixed": "#00201c",
+                      "inverse-on-surface": "#f0f1f0",
+                      "tertiary-container": "#cea62c",
+                      "secondary-container": "#c7eae2",
+                      "surface-container-highest": "#e1e3e2",
+                      "surface-bright": "#f9f9f8",
+                      "surface": "#f9f9f8",
+                      "primary-fixed-dim": "#7cd6c8",
+                      "on-tertiary-fixed": "#241a00",
+                      "outline": "#6e7977",
+                      "on-tertiary-fixed-variant": "#584400"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f8] dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full transition-colors duration-300">
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:bg-slate-100/50 p-2 rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="text-xl font-bold text-[#2F8F83] dark:text-[#1c8277] font-['Plus_Jakarta_Sans'] tracking-tight">Voyage</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-slate-500 hover:bg-slate-100/50 p-2 rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-slate-500 hover:bg-slate-100/50 p-2 rounded-full transition-transform active:scale-95 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden ml-2 ring-2 ring-primary/20">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of Alex Walker, a smiling young man with a professional and friendly look in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPY30haMjhHLytA9B58F6i4wN-n-C9_Is1Lc20qbSDc1osA1pLbsXRYVWALu6KGxNkN4FUwnGX_xnKreoS_6CEXgw9RpM-r4xEKFhibJ-Z-ztjTVoZkWosfpSHpneyevwfgyDs43xg0gNGpzw2tr8gbk0r8NwROWCq_WrH-CjFGbLPjHLXmpNzJOhZi4T1cQ-pUrfhNhWyVbiyxa8ZrcFFiR_7tzLJxWvfnIcKtDQUvWH3iKzLMvmSasJ51dKGMjcvQUOAiS7X0RY"/>
+</div>
+</div>
+</header>
+<main class="pt-20 px-6 space-y-8">
+<!-- Welcome Section -->
+<section class="space-y-1">
+<p class="text-on-surface-variant font-medium text-sm tracking-wide uppercase opacity-70">Hello, Alex Walker</p>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight leading-tight">
+                Welcome back!<br/>
+<span class="text-primary">Where are we flying to next?</span>
+</h1>
+</section>
+<!-- Weather & Context Widget -->
+<section class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-low rounded-lg p-6 flex items-center justify-between">
+<div class="space-y-1">
+<p class="text-sm font-medium text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                        Current Location
+                    </p>
+<h3 class="text-xl font-bold">San Francisco, CA</h3>
+</div>
+<div class="text-right flex items-center gap-4">
+<div class="space-y-0">
+<p class="text-3xl font-bold text-on-surface">28°</p>
+<p class="text-xs font-medium text-tertiary">Sunny</p>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-4xl" data-icon="light_mode" data-weight="fill" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions (2x2 Bento) -->
+<section class="grid grid-cols-2 gap-4">
+<button class="bg-primary-container text-on-primary-container p-6 rounded-lg flex flex-col justify-between aspect-square transition-transform active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-3xl" data-icon="add_location_alt">add_location_alt</span>
+<span class="font-bold text-lg leading-tight">Plan<br/>Trip</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface p-6 rounded-lg flex flex-col justify-between aspect-square transition-transform active:scale-95">
+<span class="material-symbols-outlined text-3xl text-primary" data-icon="explore">explore</span>
+<span class="font-bold text-lg leading-tight">Explore<br/>World</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface p-6 rounded-lg flex flex-col justify-between aspect-square transition-transform active:scale-95">
+<span class="material-symbols-outlined text-3xl text-tertiary" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="font-bold text-lg leading-tight">Saved<br/>Places</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface p-6 rounded-lg flex flex-col justify-between aspect-square transition-transform active:scale-95">
+<span class="material-symbols-outlined text-3xl text-secondary" data-icon="timeline">timeline</span>
+<span class="font-bold text-lg leading-tight">My<br/>Timeline</span>
+</button>
+</section>
+<!-- AI Suggestions (Editorial Scroll) -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    Concierge Picks
+                </h2>
+<button class="text-primary font-bold text-sm">View all</button>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2 -mx-6 px-6">
+<!-- Card 1 -->
+<div class="min-w-[280px] bg-white rounded-xl overflow-hidden shadow-[0_12px_32px_rgba(25,28,28,0.06)] flex flex-col">
+<div class="h-40 w-full relative">
+<img class="w-full h-full object-cover" data-alt="stunning aerial view of overwater bungalows in a turquoise maldives lagoon at sunset with vibrant orange sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLE0PP8LDiHplAXF8Xy9J7W8PK-zoNFzjwce_eXfIZlswhelDRVTaQe4v5OqklMxc38RQ510vE6dDxdxEz13A5I-jLmi4i58j2vwa_lBFfWoZeM1GHAXOgyjF7H2w2Poz0xvP1ZAigZO4z_PmKr5dza6lD_BK5LwH5EKZh_k6GA49zRoT_PIbm3qM4I3h0O0hBo1eGkuuu93YOzqCXSpPHcbDaknUTFKZuHixlgu4xWzPP1ztMIzwN51ud4cIve16iKwuYsms5KJU"/>
+<div class="absolute top-3 left-3 bg-tertiary-container/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="sparkles">colors_spark</span>
+<span class="text-[10px] font-bold text-on-tertiary-container uppercase tracking-widest">Recommended</span>
+</div>
+</div>
+<div class="p-6 space-y-2">
+<h4 class="font-bold text-lg leading-snug">Maldives next month?</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Flights are 20% lower than average for your preferred dates in October.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[280px] bg-tertiary-container/10 border border-tertiary-container/20 rounded-xl p-6 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-bold text-lg leading-snug">Smart Packing Tip</h4>
+<p class="text-on-tertiary-container text-sm leading-relaxed">Heading to Paris? It's cooling down. Pack a light trench coat and versatile layers.</p>
+</div>
+</div>
+<button class="mt-4 text-tertiary font-bold text-sm flex items-center gap-1">
+                        Add to list <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Recent Activity -->
+<section class="space-y-4 pb-12">
+<h2 class="text-xl font-bold">Recent Activity</h2>
+<div class="space-y-3">
+<!-- Activity 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 transition-transform active:scale-[0.98]">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary" data-icon="temple_buddhist">temple_buddhist</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-sm truncate">Kyoto Temples Guide</p>
+<p class="text-xs text-on-surface-variant">Saved to "Summer 2024" trip</p>
+</div>
+<p class="text-[10px] font-medium text-slate-400">2h ago</p>
+</div>
+<!-- Activity 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 transition-transform active:scale-[0.98]">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-fixed-variant" data-icon="settings_suggest">settings_suggest</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-sm truncate">Travel Preferences</p>
+<p class="text-xs text-on-surface-variant">Updated "Seat preference" to Aisle</p>
+</div>
+<p class="text-[10px] font-medium text-slate-400">Yesterday</p>
+</div>
+<!-- Activity 3 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 transition-transform active:scale-[0.98]">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-tertiary-fixed" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-sm truncate">Paris Flight Search</p>
+<p class="text-xs text-on-surface-variant">Searched SFO → CDG</p>
+</div>
+<p class="text-[10px] font-medium text-slate-400">2d ago</p>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB for AI Assistant -->
+<button class="fixed bottom-24 right-6 w-16 h-16 bg-primary text-white rounded-full shadow-xl flex items-center justify-center z-50 transition-transform active:scale-90 overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-3xl relative z-10" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full rounded-t-[3rem] z-50 bg-[#f9f9f8]/90 dark:bg-slate-950/90 backdrop-blur-md shadow-[0_-12px_32px_rgba(25,28,28,0.06)] flex justify-around items-center w-full px-4 pb-4 pt-2">
+<a class="flex flex-col items-center justify-center bg-[#2F8F83]/10 text-[#2F8F83] dark:text-[#1c8277] rounded-full p-3 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[11px] font-['Plus_Jakarta_Sans'] font-medium tracking-wide uppercase mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-3 hover:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[11px] font-['Plus_Jakarta_Sans'] font-medium tracking-wide uppercase mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-3 hover:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-[11px] font-['Plus_Jakarta_Sans'] font-medium tracking-wide uppercase mt-1">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-3 hover:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[11px] font-['Plus_Jakarta_Sans'] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+<!-- Hidden Navigation Drawer (Overlay placeholder for UI representation) -->
+<div class="fixed inset-0 z-[60] pointer-events-none overflow-hidden" id="drawer">
+<div class="absolute inset-0 bg-on-background/20 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+<aside class="absolute left-0 top-0 h-full w-80 bg-[#f3f4f3] dark:bg-slate-900 rounded-r-[3rem] shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col p-8">
+<div class="flex items-center gap-4 mb-10">
+<div class="w-14 h-14 rounded-full overflow-hidden ring-4 ring-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="close-up profile photo of a man named Alex Walker with short brown hair, wearing a white shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDACXkISkEItogqpdiK1c3BIeSKOROPriN1sKerZ_qRKG4JFMsMymQkbtecYnR9_GMTIDBT_r88p5JdpbidCXDs2-_1cwW9FcKhKNfjk-m7dR11UOsy72azgGc3WrL5pkvo1A2PP5dDqJh9Owqa-cWC_264ayEkPnQ9i67763h6xJPufjShtjtzvxCDwa7R7p98WCVr-HAKJBTWOgX_zFBo2wM4AW9UmuGL61bPrTZ-WyBQyPwxlhI_5fwl2EKrrDcDZD9hyxluqiE"/>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight text-on-surface">Alex Walker</h3>
+<p class="text-xs text-[#2F8F83] font-medium">Premium Member</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 p-4 text-[#2F8F83] font-bold bg-white/50 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-600 dark:text-slate-400 hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Destinations</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-600 dark:text-slate-400 hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="hiking">hiking</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Activities</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-600 dark:text-slate-400 hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Trips</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-600 dark:text-slate-400 hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="backpack">backpack</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Backpack</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-600 dark:text-slate-400 hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Favorites</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200/50">
+<a class="flex items-center gap-4 p-4 text-slate-600 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Settings</span>
+</a>
+</div>
+</aside>
+</div>
+</body></html>

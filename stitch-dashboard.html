@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2e3131",
+                    "primary-fixed": "#98f3e4",
+                    "primary-container": "#1c8277",
+                    "surface-container-high": "#e7e8e7",
+                    "tertiary": "#755b00",
+                    "surface-bright": "#f9f9f8",
+                    "on-secondary-container": "#4a6a65",
+                    "on-background": "#191c1c",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-surface": "#191c1c",
+                    "surface": "#f9f9f8",
+                    "secondary-fixed-dim": "#abcec7",
+                    "surface-container": "#edeeed",
+                    "background": "#f9f9f8",
+                    "outline": "#6e7977",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "primary": "#00685e",
+                    "on-primary-fixed-variant": "#005048",
+                    "on-primary-container": "#f4fffb",
+                    "on-secondary-fixed-variant": "#2d4c47",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#00201c",
+                    "primary-fixed-dim": "#7cd6c8",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e1e3e2",
+                    "surface-tint": "#006a60",
+                    "surface-container-highest": "#e1e3e2",
+                    "secondary-container": "#c7eae2",
+                    "on-surface-variant": "#3e4947",
+                    "on-primary-fixed": "#00201c",
+                    "secondary-fixed": "#c7eae2",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d9dad9",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f4f3",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#bdc9c6",
+                    "tertiary-fixed-dim": "#ecc246",
+                    "tertiary-container": "#cea62c",
+                    "inverse-primary": "#7cd6c8",
+                    "on-tertiary-fixed": "#241a00",
+                    "tertiary-fixed": "#ffe08e",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary": "#44645f",
+                    "inverse-on-surface": "#f0f1f0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .asymmetric-border {
+            border-top-left-radius: 3rem;
+            border-bottom-right-radius: 3rem;
+            border-top-right-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- SideNavBar Integration -->
+<aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-stone-100 dark:bg-stone-900 flex-col p-6 gap-2 z-40">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-extrabold text-teal-800 dark:text-teal-200 tracking-tighter">SafarAI</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-stone-500 font-medium">Your Digital Concierge</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-stone-800 text-teal-900 dark:text-teal-100 rounded-xl shadow-sm transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-plus-jakarta-sans text-sm font-semibold">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-plus-jakarta-sans text-sm">My Trips</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-plus-jakarta-sans text-sm">AI Assistant</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-plus-jakarta-sans text-sm">Saved Places</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-plus-jakarta-sans text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-2 border-t border-stone-200 dark:border-stone-800">
+<button class="w-full flex items-center justify-center gap-2 py-4 bg-primary text-white rounded-xl font-bold text-sm shadow-lg hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Adventure
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-400 hover:text-teal-500 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-400 hover:text-red-500 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Log Out
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen bg-surface">
+<!-- Top Navigation -->
+<header class="flex justify-between items-center px-8 h-20 w-full bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl sticky top-0 z-30">
+<div class="flex items-center gap-8">
+<div class="hidden lg:flex gap-6">
+<a class="text-teal-700 dark:text-teal-300 font-semibold border-b-2 border-teal-600 font-plus-jakarta-sans tracking-tight py-2" href="#">Explore</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-teal-600 font-plus-jakarta-sans tracking-tight py-2" href="#">Concierge</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-teal-600 font-plus-jakarta-sans tracking-tight py-2" href="#">Journal</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-teal-600 font-plus-jakarta-sans tracking-tight py-2" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-stone-400 text-lg" data-icon="search">search</span>
+</div>
+<input class="bg-surface-container border-none rounded-full py-2 pl-10 pr-4 text-sm w-64 focus:ring-1 focus:ring-primary/20 transition-all" placeholder="Search destinations..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-teal-600" data-icon="notifications">notifications</span>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile avatar" class="h-full w-full object-cover" data-alt="close-up portrait of a young professional man with a kind smile and stylish glasses in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdvPzpEDYwmp2HJKpoOfVPKsdoYreQ7JKiYuWDLMtHJBclmfrXLa8zjtAlPh2i3cWLxsNDkowUF0Psc0sv-5WQufM_d-zaOhvQOwNWwAQGjzlYRUgeK709rs32b7W3Ar2zQpeyHZD1vYCXEoZJZHTkDbzvWJLI0q06WlNCHswBfSqgrMFTzv9tOjhe2cn25GNOCisDeadZb8XQJVQJT7VWq7_osk4ZeQgakY88v8YlchWZxhaatTVVtdXhwyPYu_Q7Ax2J72RIHbA"/>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto px-8 py-12">
+<!-- Hero Greeting Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="inline-block px-4 py-1.5 bg-tertiary-container/20 text-tertiary font-bold text-[10px] tracking-widest uppercase rounded-full mb-4">MEMBER SINCE 2022</span>
+<h2 class="text-5xl font-extrabold tracking-tighter text-on-surface mb-2">Welcome back, Alex!</h2>
+<p class="text-on-surface-variant body-lg max-w-xl leading-relaxed">Your next adventure is waiting. AI has curated some breathtaking vistas for your upcoming September break.</p>
+</div>
+<!-- Weather Widget -->
+<div class="bg-surface-container-low p-6 rounded-lg flex items-center gap-6 min-w-[300px]">
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-stone-400">Current Location</span>
+<span class="text-xl font-bold text-teal-900">London, UK</span>
+</div>
+<div class="flex items-center gap-3 ml-auto">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="partly_cloudy_day">partly_cloudy_day</span>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-on-surface">21°C</span>
+<span class="text-xs text-stone-500">Scattered clouds</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Quick Actions Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+<div class="md:col-span-2 bg-primary text-white p-8 rounded-xl relative overflow-hidden group cursor-pointer shadow-lg active:scale-[0.98] transition-all">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<h3 class="text-3xl font-bold mb-2">Plan Trip</h3>
+<p class="text-primary-fixed/80 max-w-[200px]">Let SafarAI build your custom itinerary in seconds.</p>
+</div>
+<span class="material-symbols-outlined text-5xl opacity-50 self-end" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container rounded-full -mr-10 -mt-10 blur-3xl opacity-50"></div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 group cursor-pointer hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-teal-600 mb-6 block text-3xl" data-icon="explore">explore</span>
+<h4 class="font-bold text-lg mb-1">Explore</h4>
+<p class="text-stone-500 text-sm">Discover hidden gems and local favorites.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 group cursor-pointer hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-tertiary mb-6 block text-3xl" data-icon="bookmark">bookmark</span>
+<h4 class="font-bold text-lg mb-1">Saved</h4>
+<p class="text-stone-500 text-sm">Review your curated bucket list.</p>
+</div>
+<div class="md:col-span-1 bg-surface-container-low p-8 rounded-lg flex flex-col justify-center items-center text-center cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-stone-400 mb-4 text-3xl" data-icon="timeline">timeline</span>
+<h4 class="font-bold text-lg mb-1">Timeline</h4>
+<p class="text-stone-500 text-sm">View past adventures</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Concierge Picks (Editorial Recommendation Cards) -->
+<div class="lg:col-span-2">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-2xl font-bold tracking-tight">Concierge Picks</h3>
+<a class="text-teal-700 text-sm font-semibold hover:underline" href="#">View All Recommendations</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden asymmetric-border aspect-[4/5] mb-6 shadow-xl">
+<img alt="Amalfi Coast View" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="scenic aerial view of Amalfi Coast colorful houses perched on cliffs overlooking deep turquoise Mediterranean waters at sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL1ct7I5wbM_B3O1cPE3K-jfCZHlvIgyi1de8D3ydeHbxEw4b5S5rQGueVS4xGLIVNyp7gs4ga-tYGrcvAbv-2HgXYHUjKqRu0ojSfTABpZbnNDpeitl4kKK5E8JWMDpr0w8sdFrfkfwKGm1446T9P-1rPvVAEmG9I0X1s54_m6baZu2jiM7x2oiiFmrjZF-l1YEnu8DAn0GsU817ahua02bjUGn62oD7U9H9fMo9ulyFUJK6GP_caShGlBXB1BRL7WrehfSe_uSM"/>
+<div class="absolute top-4 right-4 bg-tertiary-container/90 backdrop-blur text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                                    AI SUGGESTION
+                                </div>
+</div>
+<h4 class="text-xl font-bold mb-1">Coastal Retreats in Amalfi</h4>
+<p class="text-stone-500 text-sm italic mb-4">"Perfect for your search for serenity and local cuisine."</p>
+<div class="flex items-center gap-4 text-xs font-bold text-teal-800 tracking-wider uppercase">
+<span>7 DAYS</span>
+<span class="h-1 w-1 bg-stone-300 rounded-full"></span>
+<span>ITALY</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-6 shadow-xl" style="border-bottom-left-radius: 4rem;">
+<img alt="Kyoto Zen Garden" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="traditional wooden architecture of a Japanese temple in Kyoto surrounded by vibrant autumn maple leaves in shades of red and gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_4iY2RFKFJ0v0xPYMyXcNAw-MVj4Pec4jGciGLkBiWeyqZjTKibFA4RVsLEvO9DblN8O3XmBq2nLEbXezGiJn6q82Lq316tWHK_JSIGi1ktHC5EZlysYrmg9RWGL6X-RiEXHmWhyuNx_edHjlcdFuuH-tHwHvElASMgy2nyV3apAfQSRajnFbxOo5Nmnw_t5c12-fALIKvMwgS3hBGeZ8hzUBr-iR4zqBKkmrQe29qU_IhqQxCzcspqmiLm0-h_6ub6igjHEKcFY"/>
+<div class="absolute top-4 right-4 bg-tertiary-container/90 backdrop-blur text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                                    AI SUGGESTION
+                                </div>
+</div>
+<h4 class="text-xl font-bold mb-1">Zen Traditions in Kyoto</h4>
+<p class="text-stone-500 text-sm italic mb-4">"Matches your interest in architecture and tea rituals."</p>
+<div class="flex items-center gap-4 text-xs font-bold text-teal-800 tracking-wider uppercase">
+<span>12 DAYS</span>
+<span class="h-1 w-1 bg-stone-300 rounded-full"></span>
+<span>JAPAN</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="lg:col-span-1">
+<div class="bg-surface-container-low p-8 rounded-lg min-h-full">
+<h3 class="text-xl font-bold mb-8">Recent Activity</h3>
+<div class="relative">
+<!-- Itinerary Timeline Logic -->
+<div class="absolute left-[7px] top-2 bottom-2 w-[2px] bg-outline-variant/20"></div>
+<div class="space-y-10">
+<!-- Activity Item 1 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full border-2 border-surface-container-low bg-tertiary z-10"></div>
+<span class="text-[10px] font-bold text-stone-400 block mb-1 uppercase tracking-widest">Today, 10:24 AM</span>
+<p class="text-sm font-semibold text-on-surface">Saved "Hotel de la Ville" to Amalfi trip</p>
+<p class="text-xs text-stone-500 mt-1">Luxury category recommendation.</p>
+</div>
+<!-- Activity Item 2 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full border-2 border-surface-container-low bg-primary z-10"></div>
+<span class="text-[10px] font-bold text-stone-400 block mb-1 uppercase tracking-widest">Yesterday</span>
+<p class="text-sm font-semibold text-on-surface">AI generated 3-day Kyoto itinerary</p>
+<p class="text-xs text-stone-500 mt-1">Focus on Gion District and Arashiyama.</p>
+</div>
+<!-- Activity Item 3 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full border-2 border-surface-container-low bg-stone-300 z-10"></div>
+<span class="text-[10px] font-bold text-stone-400 block mb-1 uppercase tracking-widest">Aug 24, 2024</span>
+<p class="text-sm font-semibold text-on-surface">Booked flights to London (LHR)</p>
+<p class="text-xs text-stone-500 mt-1">Confirmation #SA-9921-X</p>
+</div>
+<!-- Activity Item 4 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full border-2 border-surface-container-low bg-stone-300 z-10"></div>
+<span class="text-[10px] font-bold text-stone-400 block mb-1 uppercase tracking-widest">Aug 22, 2024</span>
+<p class="text-sm font-semibold text-on-surface">Shared "Summer Mood" journal</p>
+<p class="text-xs text-stone-500 mt-1">Shared with Community portal.</p>
+</div>
+</div>
+</div>
+<!-- Mini Map Preview -->
+<div class="mt-12 rounded-xl overflow-hidden aspect-square shadow-inner bg-surface-container-high relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-6xl" data-icon="map">map</span>
+</div>
+<!-- Mock map background would be here -->
+<div class="absolute inset-0 bg-teal-900/5"></div>
+<div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur p-3 rounded-lg flex items-center gap-3">
+<div class="h-8 w-8 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" data-icon="pin_drop">pin_drop</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-stone-500 uppercase leading-none">UPCOMING DESTINATION</p>
+<p class="text-sm font-bold text-on-surface">Positano, Italy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Integration -->
+<footer class="w-full py-12 mt-20 bg-stone-50 dark:bg-stone-950 border-t-0 tonal-shift-bg">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
+<h2 class="font-bold text-teal-900 tracking-tighter text-xl">SafarAI</h2>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-plus-jakarta-sans text-xs tracking-widest uppercase text-stone-400 hover:text-teal-500 transition-colors" href="#">Privacy Policy</a>
+<a class="font-plus-jakarta-sans text-xs tracking-widest uppercase text-stone-400 hover:text-teal-500 transition-colors" href="#">Terms of Service</a>
+<a class="font-plus-jakarta-sans text-xs tracking-widest uppercase text-stone-400 hover:text-teal-500 transition-colors" href="#">Press Kit</a>
+<a class="font-plus-jakarta-sans text-xs tracking-widest uppercase text-stone-400 hover:text-teal-500 transition-colors" href="#">Contact</a>
+</div>
+<p class="text-stone-400 text-[10px] font-plus-jakarta-sans tracking-widest uppercase">© 2024 SafarAI. Editorial Travel Tech.</p>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation (Visible only on small screens) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-stone-100 flex justify-around items-center px-4 z-50">
+<a class="flex flex-col items-center text-teal-700" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold">HOME</span>
+</a>
+<a class="flex flex-col items-center text-stone-400" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold">EXPLORE</span>
+</a>
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white -mt-8 shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</div>
+<a class="flex flex-col items-center text-stone-400" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[10px] font-bold">AI</span>
+</a>
+<a class="flex flex-col items-center text-stone-400" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold">PROFILE</span>
+</a>
+</nav>
+</body></html>
