@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Debug and Test Scripts
+check_bucket.js
+test_insert.js
+test_upload.js
+safarai_storage_debug.sql
+scratch/
+backend/
+public/uploads/*
+!public/uploads/.gitkeep

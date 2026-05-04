@@ -71,14 +71,17 @@ CREATE POLICY "Destinations are viewable by everyone" ON destinations
 CREATE TABLE saved_places (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-    foursquare_venue_id VARCHAR(255) NOT NULL,
+    foursquare_venue_id VARCHAR(255),
+    opentripmap_id VARCHAR(255),
     name VARCHAR(255) NOT NULL,
     category VARCHAR(100),
     city VARCHAR(100),
     image_url TEXT,
     notes TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(user_id, foursquare_venue_id)
+    UNIQUE(user_id, foursquare_venue_id),
+    UNIQUE(user_id, opentripmap_id),
+    CONSTRAINT has_venue_id CHECK (foursquare_venue_id IS NOT NULL OR opentripmap_id IS NOT NULL)
 );
 
 ALTER TABLE saved_places ENABLE ROW LEVEL SECURITY;
@@ -144,13 +147,15 @@ CREATE POLICY "Anyone can view days of public itineraries" ON itinerary_days
 CREATE TABLE itinerary_activities (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     itinerary_day_id UUID REFERENCES itinerary_days(id) ON DELETE CASCADE,
-    foursquare_venue_id VARCHAR(255) NOT NULL,
+    foursquare_venue_id VARCHAR(255),
+    opentripmap_id VARCHAR(255),
     name VARCHAR(255) NOT NULL,
     scheduled_start_time TIME,
     scheduled_end_time TIME,
     activity_type VARCHAR(50), 
     ai_reasoning TEXT, 
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT has_activity_venue_id CHECK (foursquare_venue_id IS NOT NULL OR opentripmap_id IS NOT NULL)
 );
 
 ALTER TABLE itinerary_activities ENABLE ROW LEVEL SECURITY;
@@ -183,6 +188,50 @@ CREATE INDEX idx_itineraries_user ON itineraries(user_id);
 CREATE INDEX idx_activities_day ON itinerary_activities(itinerary_day_id);
 
 -- ==========================================
+-- 7. CHAT SESSIONS (AI Concierge)
+-- ==========================================
+CREATE TABLE chat_sessions (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    title VARCHAR(255) DEFAULT 'New Conversation',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE chat_sessions ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users manage their own chat sessions" ON chat_sessions
+    FOR ALL USING (auth.uid() = user_id);
+
+-- ==========================================
+-- 8. CHAT MESSAGES
+-- ==========================================
+CREATE TABLE chat_messages (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    session_id UUID REFERENCES chat_sessions(id) ON DELETE CASCADE,
+    role VARCHAR(50) NOT NULL CHECK (role IN ('user', 'assistant', 'system')),
+    content TEXT NOT NULL,
+    intent VARCHAR(50), -- e.g., 'EXPLORE', 'WEATHER', 'CULTURE', 'CHAT'
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE chat_messages ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users manage their own chat messages" ON chat_messages
+    FOR ALL USING (
+        EXISTS (
+            SELECT 1 FROM chat_sessions 
+            WHERE chat_sessions.id = chat_messages.session_id AND chat_sessions.user_id = auth.uid()
+        )
+    );
+
+-- ==========================================
+-- INDEXES FOR CHAT PERFORMANCE ⚡
+-- ==========================================
+CREATE INDEX idx_chat_sessions_user ON chat_sessions(user_id);
+CREATE INDEX idx_chat_messages_session ON chat_messages(session_id);
+
+-- ==========================================
 -- TRIGGER: UPDATE TIMESTAMP (Optional Utility)
 -- ==========================================
 CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -199,4 +248,8 @@ CREATE TRIGGER update_users_modtime
 
 CREATE TRIGGER update_itineraries_modtime
     BEFORE UPDATE ON itineraries
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_chat_sessions_modtime
+    BEFORE UPDATE ON chat_sessions
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
